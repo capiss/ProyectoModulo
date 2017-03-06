@@ -4,6 +4,7 @@
 import paramiko
 from scp import SCPClient
 
+
 #Se crea una instancia de cliente SSH
 ssh_client = paramiko.SSHClient()
 #Establece politica por defecto para buscar la llave de host en el equipo
