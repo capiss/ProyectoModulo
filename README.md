@@ -5,5 +5,5 @@ EL archivo .env contiene los parametros para conectarse: <br />
   * username=[usuario] <br/>
   * password=[password> <br />
   * port=[puerto] <br />
-  *rutacsv=[ruta_de_los_csv] <br />
+  * rutacsv=[ruta_de_los_csv] <br />
   **** Nota: el usuario debe tener permisos sobre la carpeta. ****
