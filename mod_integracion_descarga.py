@@ -7,8 +7,7 @@ import time
 from pprint import pprint
 
 class conexionssh():
-  datos={'host':'','username':'','password':'','port':''}
-  #datos={}
+  datos={'host':'','username':'','password':'','port':'','reportecsv':''}
   def __init__(self):
     datos={}
     env=open(".env","r")
@@ -24,7 +23,6 @@ class conexionssh():
   def copiar(self):  
     fecha=time.strftime("%Y-%m-%d")
     try:
-      key = paramiko.RSAKey.from_private_key_file(str(self.datos['keyfile']))
       #Se crea una instancia de cliente SSH
       ssh_client = paramiko.SSHClient()
       #Establece politica por defecto para buscar la llave de host en el equipo
@@ -41,7 +39,6 @@ class conexionssh():
       scp=SCPClient(ssh_client.get_transport())
       while archivo!='': 
         if archivo.find(fecha) != -1:
-          # archivo=archivo[len(path):]
           print "Leyendo archivo correspondiente al dia de hoy: "+archivo
           tmp=archivo.split("/")
           print "Guardando como: "+tmp[-1]
@@ -49,7 +46,6 @@ class conexionssh():
           scp.get(archivo,tmp[-1])
         archivo=stdout.readline()[:-1]
       #Se cierran las conexiones scp y ssh
-      # scp.close()
       ssh_client.close()
     except Exception, e:
      print e
