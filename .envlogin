@@ -2,6 +2,6 @@ username=admin
 password=admin
 host=ngen.com
 puerto=443
-path=login
+path=/user/login_check
 
 
